@@ -24,7 +24,8 @@ class MainActivity : AppCompatActivity(), OnClickListener {
         if(it.resultCode != Activity.RESULT_OK)
             return@registerForActivityResult
 
-        val result = it.data?.getIntExtra(ImageActivity.IMAGE_RESULT, ImageActivity.NONE)
+        val result = it.data?.getIntExtra(
+            ImageActivity.IMAGE_RESULT, ImageActivity.NONE)
 
         val str = when(result) {
             ImageActivity.LIKE -> "좋아요"
@@ -59,7 +60,7 @@ class MainActivity : AppCompatActivity(), OnClickListener {
             }
             else -> return
         }
-        val intent = Intent(this, ImageActivity::class.java)
+        val intent = Intent(this, AnotherActivity::class.java)
         intent.putExtra(KEY_NAME, value)
 //        startActivity(intent)
         startForResult.launch(intent)
